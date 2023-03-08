@@ -2,15 +2,25 @@ package gr.kariera.mindthecode.teamfirstproject;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Set;
 
-@Entity
-public class Order {
+
+@Embeddable
+public class Order implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
     private Float discount;
 
+    public Order(Integer id, Float discount) {
+        this.id = id;
+        this.discount = discount;
+    }
+
+    public Order() {
+
+    }
 
     public Integer getId() {
         return id;

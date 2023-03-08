@@ -1,47 +1,33 @@
 package gr.kariera.mindthecode.teamfirstproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import org.aspectj.weaver.ast.Or;
 
 @Entity
 public class OrderProduct {
-    @Id
-    @GeneratedValue
-    private Integer id;
 
-    @ManyToOne
-    Order order;
+    @EmbeddedId
+    private Order orderId;
 
-    @ManyToOne
-    Product product;
+    @EmbeddedId
+    private Product productId;
 
     private Integer quantity;
 
-    public Integer getId() {
-        return id;
+    public Order getOrderId() {
+        return orderId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setOrderId(Order orderId) {
+        this.orderId = orderId;
     }
 
-    public Order getOrder() {
-        return order;
+    public Product getProductId() {
+        return productId;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId(Product productId) {
+        this.productId = productId;
     }
 
     public Integer getQuantity() {

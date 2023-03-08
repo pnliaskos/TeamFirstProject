@@ -3,15 +3,28 @@ package gr.kariera.mindthecode.teamfirstproject;
 import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
+import java.io.Serializable;
 import java.util.Set;
 
-@Entity
-public class Product {
+
+@Embeddable
+public class Product implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;
     private Float price;
     private String description;
+
+    public Product(Integer id, Float price, String description) {
+        this.id = id;
+        this.price = price;
+        this.description = description;
+    }
+
+    public Product() {
+
+    }
+
 
     public Integer getId() {
         return id;
