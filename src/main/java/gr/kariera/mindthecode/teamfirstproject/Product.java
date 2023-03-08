@@ -9,8 +9,6 @@ import java.util.Set;
 
 @Embeddable
 public class Product implements Serializable {
-    @Id
-    @GeneratedValue
     private Integer id;
     private Float price;
     private String description;
@@ -24,7 +22,6 @@ public class Product implements Serializable {
     public Product() {
 
     }
-
 
     public Integer getId() {
         return id;
