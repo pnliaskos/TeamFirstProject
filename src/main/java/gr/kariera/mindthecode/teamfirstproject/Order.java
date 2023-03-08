@@ -1,9 +1,6 @@
 package gr.kariera.mindthecode.teamfirstproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import java.util.Set;
 
@@ -14,6 +11,11 @@ public class Order {
     private Integer id;
     private Float discount;
     @ManyToMany
+     @JoinTable(
+             name = "product_ordered",
+             joinColumns = @JoinColumn (name = "order_id"),
+             inverseJoinColumns = @JoinColumn (name = "product_id")
+     )
     Set<Product> orderProducts;
 
     public Integer getId() {

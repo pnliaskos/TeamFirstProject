@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.Set;
 
@@ -15,7 +16,8 @@ public class Product {
     private Float price;
     private String description;
 
-    @ManyToMany
+    @JsonIgnore
+    @ManyToMany (mappedBy = "productOrders")
     Set<Order> productOrders;
 
     public Integer getId() {
