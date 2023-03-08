@@ -1,9 +1,6 @@
 package gr.kariera.mindthecode.teamfirstproject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import net.minidev.json.annotate.JsonIgnore;
 
 import java.util.Set;
@@ -15,10 +12,6 @@ public class Product {
     private Integer id;
     private Float price;
     private String description;
-
-    @JsonIgnore
-    @ManyToMany (mappedBy = "productOrders")
-    Set<Order> productOrders;
 
     public Integer getId() {
         return id;
@@ -42,13 +35,5 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Set<Order> getProductOrders() {
-        return productOrders;
-    }
-
-    public void setProductOrders(Set<Order> productOrders) {
-        this.productOrders = productOrders;
     }
 }
